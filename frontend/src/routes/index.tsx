@@ -96,7 +96,7 @@ function Index() {
   }, []);
 
   const syncQuestToDB = (started: boolean, currentTasks: Record<string, boolean>) => {
-    fetch(`${API_URL}/quest/${userId}`, {
+    fetch(`${API_URL}/api/quest/${userId}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ started, tasks: currentTasks })
