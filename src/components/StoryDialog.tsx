@@ -1,0 +1,89 @@
+import { useState } from "react";
+import type { POI } from "@/data/pois";
+
+type Props = { poi: POI; onClose: () => void };
+
+export default function StoryDialog({ poi, onClose }: Props) {
+  const [tab, setTab] = useState<"story" | "facts">("story");
+
+  return (
+    <div
+      className="fixed inset-0 z-[1000] flex items-center justify-center bg-ink/60 p-4 backdrop-blur-sm"
+      style={{ backgroundColor: "oklch(0.2 0.04 50 / 0.65)" }}
+      onClick={onClose}
+    >
+      <article
+        className="paper-card deckle-edge relative max-h-[90vh] w-full max-w-2xl overflow-y-auto p-8 sm:p-10"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          onClick={onClose}
+          className="absolute right-4 top-4 text-2xl text-sepia hover:text-accent"
+          aria-label="Închide"
+        >
+          ✕
+        </button>
+
+        <p className="font-type text-xs uppercase tracking-[0.3em] text-sepia">
+          Berceni · {poi.year}
+        </p>
+        <h2 className="mt-2 font-display text-4xl font-bold text-ink sm:text-5xl">
+          {poi.name}
+        </h2>
+
+        <div className="mt-6 overflow-hidden rounded-sm border border-border shadow-md">
+          <img
+            src={poi.image}
+            alt={poi.name}
+            width={1024}
+            height={704}
+            loading="lazy"
+            className="sepia-img h-auto w-full"
+          />
+        </div>
+
+        <div className="mt-6 flex gap-2 border-b border-border">
+          <button
+            onClick={() => setTab("story")}
+            className={`px-4 py-2 font-display text-lg transition-colors ${
+              tab === "story"
+                ? "border-b-2 border-accent text-ink"
+                : "text-sepia hover:text-ink"
+            }`}
+          >
+            Povestea locului
+          </button>
+          <button
+            onClick={() => setTab("facts")}
+            className={`px-4 py-2 font-display text-lg transition-colors ${
+              tab === "facts"
+                ? "border-b-2 border-accent text-ink"
+                : "text-sepia hover:text-ink"
+            }`}
+          >
+            Știai că... ({poi.funFacts.length})
+          </button>
+        </div>
+
+        {tab === "story" ? (
+          <p className="mt-5 whitespace-pre-line font-body text-lg leading-relaxed text-ink/90">
+            {poi.story}
+          </p>
+        ) : (
+          <ul className="mt-5 space-y-4">
+            {poi.funFacts.map((f, i) => (
+              <li key={i} className="flex gap-3">
+                <span className="font-display text-2xl font-bold text-accent">
+                  №{i + 1}
+                </span>
+                <span className="font-body text-lg leading-relaxed text-ink/90">
+                  {f}
+                </span>
+              </li>
+            ))}
+          </ul>
+        )}
+      </article>
+    </div>
+  );
+}
