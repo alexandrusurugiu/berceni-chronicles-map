@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+const render = "https://berceni-chronicles-map.onrender.com";
+const API_URL = render || "http://localhost:3000";
 
 export const TASK_POOL = [
   { id: "find_cocioc", icon: "🧭", title: "Originile parcului", desc: "Mergi până la locația fostei Mlaștini Cocioc." },
@@ -50,7 +52,7 @@ export default function ExplorerJournal({ tasks, questStarted, onStartQuest, use
     e.preventDefault();
     if (!selectedGrade) return;
 
-    fetch("http://localhost:3000/api/feedback", {
+    fetch(`${API_URL}/api/feedback`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

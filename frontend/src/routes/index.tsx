@@ -5,6 +5,8 @@ import StoryDialog from "@/components/StoryDialog";
 import AddStoryDialog, { type UserStory } from "@/components/AddStoryDialog";
 import ExplorerJournal, { TASK_POOL } from "@/components/ExplorerJournal";
 
+const render = "https://berceni-chronicles-map.onrender.com";
+const API_URL = render || "http://localhost:3000";
 const HeritageMap = lazy(() => import("@/components/HeritageMap"));
 export const Route = createFileRoute("/")({ component: Index });
 
@@ -20,8 +22,6 @@ function getUserId() {
   }
   return uid;
 }
-
-const API_URL = "http://localhost:3000/api";
 
 const TASK_POI_MAP: Record<string, string> = {
   find_cocioc: "cocioc", find_imgb: "imgb", find_vacaresti: "vacaresti",
