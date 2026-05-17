@@ -59,7 +59,7 @@ function Index() {
     setIsClient(true);
     
     const fetchStories = () => {
-      fetch(`${API_URL}/stories`)
+      fetch(`${API_URL}/api/stories`)
         .then(res => res.json())
         .then(data => setUserStories(data))
         .catch(console.error);
@@ -69,7 +69,7 @@ function Index() {
 
     const pollingInterval = setInterval(fetchStories, 5000);
 
-    fetch(`${API_URL}/quest/${userId}`)
+    fetch(`${API_URL}/api/quest/${userId}`)
       .then(res => res.json())
       .then(data => {
         if (data) {
@@ -160,7 +160,7 @@ function Index() {
 
   async function saveStory(s: UserStory) {
     try {
-      const res = await fetch(`${API_URL}/stories`, {
+      const res = await fetch(`${API_URL}/api/stories`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(s)
@@ -174,7 +174,7 @@ function Index() {
 
   async function handleEditStory(updatedStory: UserStory) {
     try {
-      await fetch(`${API_URL}/stories/${updatedStory.id}`, {
+      await fetch(`${API_URL}/api/stories/${updatedStory.id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(updatedStory)
@@ -188,7 +188,7 @@ function Index() {
   async function handleDeleteStory(id: string) {
     if (window.confirm("Ești sigur că vrei să ștergi această amintire definitiv?")) {
       try {
-        await fetch(`${API_URL}/stories/${id}`, { method: "DELETE" });
+        await fetch(`${API_URL}/api/stories/${id}`, { method: "DELETE" });
         setUserStories(userStories.filter(s => s.id !== id));
       } catch (err) { alert("Eroare la ștergere!"); }
     }
