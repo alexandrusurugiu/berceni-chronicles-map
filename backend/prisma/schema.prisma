@@ -1,0 +1,35 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model UserStory {
+  id        String   @id @default(uuid())
+  name      String
+  story     String
+  image     String? 
+  lat       Float
+  lng       Float
+  createdAt DateTime @default(now())
+  funFacts  String   @default("[]")
+}
+
+model QuestProgress {
+  userId    String   @id
+  tasks     String  
+  started   Boolean  @default(false)
+}
+
+model Feedback {
+  id         String   @id @default(uuid())
+  userId     String
+  grade      String
+  suggestion String?
+  timestamp  DateTime @default(now())
+}
