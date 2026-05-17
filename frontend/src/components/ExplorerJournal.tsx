@@ -9,7 +9,6 @@ export const TASK_POOL = [
   { id: "find_trenulet", icon: "🚂", title: "Nostalgia copilăriei", desc: "Mergi la Gara Trenulețului din Orășel." },
   { id: "find_pod", icon: "🌉", title: "Promenada pe lac", desc: "Mergi pe Podul Arcuit din Tineretului." },
   { id: "find_palat", icon: "🔭", title: "Căminul talentelor", desc: "Mergi până la intrarea în Palatul Național al Copiilor." },
-  { id: "find_sincai", icon: "🏛️", title: "Educație de patrimoniu", desc: "Mergi la clădirea istorică a Colegiului Șincai." },
   { id: "find_debarcader", icon: "🛶", title: "O plimbare pe lac", desc: "Mergi la vechiul debarcader din Tineretului." },
   { id: "find_eroi", icon: "🕯️", title: "Respect pentru istorie", desc: "Vizitează Cimitirul Eroilor Revoluției." },
   { id: "read_facts", icon: "💡", title: "Cercetător de detaliu", desc: "Citește secțiunea 'Știai că...' a unui punct." },
