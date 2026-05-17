@@ -4,6 +4,9 @@ import oraselul from "../assets/oraselul.jpg";
 import polivalenta_sepia from "../assets/polivalenta_sepia.jpg";
 import cenusa from "../assets/cenusa.jpg";
 import pod from "../assets/pod.jpg";
+import palat_vibe from "../assets/palat_vibe.png";
+import debarcader_vibe from "../assets/debarcader_vibe.jpg";
+import eroi_vibe from "../assets/eroi_vibe.jpg";
 
 export type POI = {
   id: string;
@@ -26,8 +29,8 @@ export type POI = {
 export const POIS: POI[] = [
   {
     id: "cocioc",
-    lat: 44.4035, // Coordonate precise pentru mijlocul actualului lac Tineretului
-    lng: 26.1095,
+    lat: 44.4047, // Coordonate precise pentru mijlocul actualului lac Tineretului
+    lng: 26.1061,
     name: "Mlaștina Cocioc (Parcul Tineretului)",
     year: "Anii '30-'50",
     image: cocioc, // Mapat direct pe cocioc.jpg atașat
@@ -40,8 +43,8 @@ export const POIS: POI[] = [
   },
   {
     id: "bellu",
-    lat: 44.4015, // Intrarea principală Cimitirul Bellu
-    lng: 26.0990,
+    lat: 44.4031, // Intrarea principală Cimitirul Bellu
+    lng: 26.0980,
     name: "Cimitirul Bellu (Panteonul Național)",
     year: "1858-Prezent",
     image: bellu_vibe, // Link Placeholder (Vibe Vintage B&W): https://historicimages.b-cdn.net/pois/bellu_vibe.jpg
@@ -54,8 +57,8 @@ export const POIS: POI[] = [
   },
   {
     id: "oraselul",
-    lat: 44.3990, // Locația centrală a zonei Orășelul Copiilor (Tineretului Sud)
-    lng: 26.1070,
+    lat: 44.4005, // Locația centrală a zonei Orășelul Copiilor (Tineretului Sud)
+    lng: 26.1086,
     name: "Orășelul Copiilor București",
     year: "1976-Prezent",
     image: oraselul, // Mapat direct pe oraselul.jpg atașat
@@ -68,8 +71,8 @@ export const POIS: POI[] = [
   },
   {
     id: "polivalenta",
-    lat: 44.4060, // Coordonate pentru Sala Polivalentă/Dealul Piscului elevation
-    lng: 26.1040,
+    lat: 44.4057, // Coordonate pentru Sala Polivalentă/Dealul Piscului elevation
+    lng: 26.1096,
     name: "Sala Polivalentă și Dealul Piscului",
     year: "1974-Prezent",
     image: polivalenta_sepia, // Link Placeholder (Vibe Vintage Sepia): https://historicimages.b-cdn.net/pois/polivalenta_sepia.jpg
@@ -82,8 +85,8 @@ export const POIS: POI[] = [
   },
   {
     id: "cenusa",
-    lat: 44.4055, // Locația pe colină, vizibilă din parc
-    lng: 26.1030,
+    lat: 44.4114, // Locația pe colină, vizibilă din parc
+    lng: 26.1031,
     name: "Crematoriul Uman „Cenușa”",
     year: "1928-1936",
     image: cenusa, // Asigură-te că ai un import sus: import cenusa from "../assets/cenusa.jpg";
@@ -106,6 +109,48 @@ export const POIS: POI[] = [
       "Sub pod, apa atinge una dintre cele mai mari adâncimi din tot lacul Tineretului.",
       "Iarna, când lacul îngheța complet în anii '80, copiii foloseau panta podului ca punct de pornire pentru patinaj direct pe gheața lacului.",
       "Arhitectura podului a fost gândită astfel încât să nu obstrucționeze fluxul curenților de apă care împrospătau lacul."
+    ],
+  },
+  {
+    id: "palatul_copiilor",
+    lat: 44.4082, // Coordonatele exacte ale Palatului Copiilor
+    lng: 26.1155,
+    name: "Palatul Național al Copiilor",
+    year: "1985-Prezent",
+    image: palat_vibe, // Necesită import sus
+    story: "Inaugurat în toamna anului 1985 sub numele de „Palatul Pionierilor și Șoimilor Patriei”, această clădire masivă a fost gândită ca cel mai mare centru de educație non-formală din țară. O capodoperă a arhitecturii publice târzii din perioada comunistă, clădirea a fost dotată cu o sală de spectacole uriașă, zeci de laboratoare (de la aeromodelism și karting, la informatică și balet) și a format generații întregi de tineri bucureșteni.",
+    funFacts: [
+      "Pe acoperișul Palatului se află un observator astronomic real, perfect funcțional, folosit pentru cursurile de astronomie.",
+      "Privită de sus, arhitectura clădirii a fost gândită să semene cu o navă spațială sau cu o pasăre în zbor.",
+      "La inaugurare, a înlocuit vechiul Palat al Pionierilor care funcționa în Palatul Cotroceni."
+    ],
+  },
+  {
+    id: "debarcader",
+    lat: 44.4080, // Pe malul lacului Tineretului
+    lng: 26.1105,
+    name: "Debarcaderul Tineretului",
+    year: "Anii '70-Prezent",
+    image: debarcader_vibe, // Necesită import sus
+    story: "Odată cu asanarea mlaștinii și formarea artificială a Lacului Tineretului (care acoperă aproximativ 13 hectare), a fost amenajat și debarcaderul principal. Zeci de ani a fost locul principal de unde bucureștenii închiriau bărci cu vâsle și hidrobiciclete (celebrele „lebede”). A devenit rapid un simbol al verilor petrecute în oraș, oferind o perspectivă unică asupra Sălii Polivalente de pe apă.",
+    funFacts: [
+      "Lacul a fost populat artificial cu pește, iar inițial se permitea pescuitul sportiv controlat.",
+      "În anii '80, iarna, când lacul îngheța bocnă, zona debarcaderului devenea patinoar public neoficial.",
+      "Fundul lacului nu este plat, ci urmărește încă adânciturile naturale ale fostei mlaștini Cocioc."
+    ],
+  },
+  {
+    id: "eroii_revolutiei",
+    lat: 44.4058, // Lângă Bellu / Eroii Revoluției
+    lng: 26.0965,
+    name: "Cimitirul Eroilor Revoluției",
+    year: "1990-Prezent",
+    image: eroi_vibe, // Necesită import sus
+    story: "Situat la marginea de vest a zonei (în Piața Eroii Revoluției, fostă Pieptănari, vizavi de Cimitirul Bellu), acest complex funerar a fost amenajat imediat după evenimentele din Decembrie 1989. Este un loc solemn, cu o încărcătură emoțională copleșitoare, unde odihnesc sute de tineri, civili și militari care și-au pierdut viața în timpul Revoluției Române pentru înlăturarea regimului comunist.",
+    funFacts: [
+      "Este singurul cimitir din București dedicat exclusiv unui singur eveniment istoric din istoria recentă a României.",
+      "Toate monumentele funerare sunt realizate uniform din marmură albă, simbolizând puritatea sacrificiului tinerilor.",
+      "Piața din fața cimitirului și stația de metrou au fost redenumite din „Pieptănari” în „Eroii Revoluției” în onoarea celor de aici."
     ],
   }
 ];
