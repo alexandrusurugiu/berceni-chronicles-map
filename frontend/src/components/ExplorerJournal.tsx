@@ -15,7 +15,6 @@ export const TASK_POOL = [
   { id: "add_story", icon: "✒️", title: "Contribuie la arhivă", desc: "Adaugă propria ta poveste pe hartă." }
 ];
 
-// Grila de evaluare inspirată din GitLab UX Scorecard
 const UX_GRADES = [
   { id: "A", label: "A", desc: "Fără efort" },
   { id: "B", label: "B", desc: "Așteptări atinse" },
@@ -28,9 +27,10 @@ type Props = {
   tasks: Record<string, boolean>;
   questStarted: boolean;
   onStartQuest: () => void;
+  userId: string;
 };
 
-export default function ExplorerJournal({ tasks, questStarted, onStartQuest }: Props) {
+export default function ExplorerJournal({ tasks, questStarted, onStartQuest, userId }: Props) {
   const [isOpen, setIsOpen] = useState(false);
   const [feedbackGiven, setFeedbackGiven] = useState(false);
   const [selectedGrade, setSelectedGrade] = useState<string | null>(null);
@@ -40,7 +40,6 @@ export default function ExplorerJournal({ tasks, questStarted, onStartQuest }: P
   const hasPendingTasks = activeTaskIds.some(id => !tasks[id]);
   const allTasksCompleted = activeTaskIds.length > 0 && !hasPendingTasks;
 
-  // Verificăm dacă utilizatorul a dat deja feedback în trecut
   useEffect(() => {
     if (localStorage.getItem("berceni-quest-feedback")) {
       setFeedbackGiven(true);
@@ -51,20 +50,20 @@ export default function ExplorerJournal({ tasks, questStarted, onStartQuest }: P
     e.preventDefault();
     if (!selectedGrade) return;
 
-    const feedbackData = {
-      grade: selectedGrade,
-      suggestion: suggestion,
-      timestamp: Date.now()
-    };
-
-    // Salvăm feedback-ul local (într-o aplicație reală, aici ai face un POST către backend/RabbitMQ)
-    const existingFeedback = JSON.parse(localStorage.getItem("berceni-quest-feedback-list") || "[]");
-    existingFeedback.push(feedbackData);
-    localStorage.setItem("berceni-quest-feedback-list", JSON.stringify(existingFeedback));
-    
-    // Marcăm ca trimis pentru acest utilizator
-    localStorage.setItem("berceni-quest-feedback", "true");
-    setFeedbackGiven(true);
+    fetch("http://localhost:3000/api/feedback", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        userId: userId,
+        grade: selectedGrade,
+        suggestion: suggestion
+      })
+    })
+    .then(() => {
+      localStorage.setItem("berceni-quest-feedback", "true");
+      setFeedbackGiven(true);
+    })
+    .catch(() => alert("Eroare la trimiterea feedback-ului!"));
   }
 
   return (
