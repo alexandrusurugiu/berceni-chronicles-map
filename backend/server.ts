@@ -23,9 +23,9 @@ async function uploadToCloudinary(base64Image: string): Promise<string> {
 
   try {
     const uploadResponse = await cloudinary.uploader.upload(base64Image, {
-      folder: 'berceni_chronicles_stories', // Numele folderului din cloud-ul tău
+      folder: 'berceni_chronicles_stories', 
     });
-    return uploadResponse.secure_url; // Returnează link-ul HTTPS permanent (ex: https://res.cloudinary.com/...)
+    return uploadResponse.secure_url;
   } catch (error) {
     console.error("Eroare la upload-ul în Cloudinary:", error);
     return '';
@@ -63,7 +63,7 @@ app.post('/api/stories', async (req, res) => {
         funFacts: JSON.stringify(funFacts || []) 
       }
     });
-    res.json({ ...newStory, funFacts: JSON.parse(newStory.newStory ? '[]' : newStory.funFacts), createdAt: new Date(newStory.createdAt).getTime() });
+    res.json({ ...newStory, funFacts: JSON.parse(newStory.funFacts || '[]'), createdAt: new Date(newStory.createdAt).getTime() });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Eroare la crearea poveștii" });
