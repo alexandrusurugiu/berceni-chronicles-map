@@ -8,7 +8,7 @@ export type UserStory = {
   lat: number;
   lng: number;
   createdAt: number;
-  funFacts?: string[]; // NOU: Array opțional pentru curiozități
+  funFacts?: string[];
 };
 
 type Props = {
@@ -25,7 +25,6 @@ export default function AddStoryDialog({ latitude, longitude, initialData, onClo
   const [image, setImage] = useState<string | undefined>(initialData?.image);
   const [fileName, setFileName] = useState<string>("");
   
-  // NOU: Stare pentru fun facts
   const [funFacts, setFunFacts] = useState<string[]>(initialData?.funFacts || []);
 
   const isEditing = !!initialData;
@@ -39,7 +38,6 @@ export default function AddStoryDialog({ latitude, longitude, initialData, onClo
     reader.readAsDataURL(file);
   }
 
-  // NOU: Funcții pentru a manipula lista de fun facts
   const addFact = () => setFunFacts([...funFacts, ""]);
   const updateFact = (index: number, val: string) => {
     const next = [...funFacts];
@@ -62,7 +60,6 @@ export default function AddStoryDialog({ latitude, longitude, initialData, onClo
       lat: initialData?.lat || latitude,
       lng: initialData?.lng || longitude,
       createdAt: initialData?.createdAt || Date.now(),
-      // Curățăm input-urile goale înainte să salvăm
       funFacts: funFacts.filter(f => f.trim() !== ""), 
     });
   }

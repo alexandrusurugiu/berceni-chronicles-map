@@ -2,12 +2,11 @@ import { useState, useEffect } from "react";
 import type { POI } from "@/data/pois";
 import type { UserStory } from "@/components/AddStoryDialog";
 
-// Primește fie un POI oficial, fie o poveste de la utilizator
 type Props = { 
   item: POI | UserStory; 
   isUserStory?: boolean;
   onClose: () => void; 
-  onReadFacts?: () => void; // NOU AICI
+  onReadFacts?: () => void;
 };
 
 export default function StoryDialog({ item, isUserStory, onClose, onReadFacts }: Props) {
@@ -19,11 +18,9 @@ export default function StoryDialog({ item, isUserStory, onClose, onReadFacts }:
       }
     }, [tab, onReadFacts]);
 
-  // Extragem sigur funFacts (dacă nu există, e un array gol)
   const funFacts = item.funFacts || [];
   const hasFacts = funFacts.length > 0;
   
-  // Pentru user stories, punem data adăugării. Pentru POI, punem anul.
   const subtitle = isUserStory 
     ? `Adăugat la: ${new Date((item as UserStory).createdAt).toLocaleDateString('ro-RO')}` 
     : `Berceni · ${(item as POI).year}`;

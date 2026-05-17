@@ -23,7 +23,6 @@ function makeUserIcon() {
   });
 }
 
-// NOU: Marker pentru locația live a utilizatorului
 function makeLiveUserIcon() {
   return L.divIcon({
     className: "",
@@ -61,7 +60,7 @@ type Props = {
   onSelectUserStory: (s: UserStory) => void;
   onMapClick?: (lat: number, lng: number) => void;
   userStories?: UserStory[];
-  userLocation?: { lat: number; lng: number } | null; // NOU: Coordonatele utilizatorului
+  userLocation?: { lat: number; lng: number } | null; 
 };
 
 export default function HeritageMap({ onSelect, onSelectUserStory, onMapClick, userStories = [], userLocation }: Props) {
