@@ -5,12 +5,14 @@
     "jsx": "react-jsx",
     "module": "ESNext",
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "ignoreDeprecations": "6.0",
 
     /* Bundler mode */
     "moduleResolution": "Bundler",
     "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": false,
     "noEmit": true,
+    "baseUrl": ".",
 
     /* Linting */
     "skipLibCheck": true,
