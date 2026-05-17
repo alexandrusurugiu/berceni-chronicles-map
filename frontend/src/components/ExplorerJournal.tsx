@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
-const render = "https://berceni-chronicles-map.onrender.com";
-const API_URL = render || "http://localhost:3000";
+import { API_URL } from "@/lib/api";
 
 export const TASK_POOL = [
   { id: "find_cocioc", icon: "🧭", title: "Originile parcului", desc: "Mergi până la locația fostei Mlaștini Cocioc." },

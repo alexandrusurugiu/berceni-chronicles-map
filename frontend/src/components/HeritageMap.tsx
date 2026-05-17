@@ -4,6 +4,7 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { POIS, type POI } from "@/data/pois";
 import { type UserStory } from "@/components/AddStoryDialog";
+import { API_URL } from "@/lib/api";
 
 function makeIcon(index: number) {
   return L.divIcon({

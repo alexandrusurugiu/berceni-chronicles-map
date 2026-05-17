@@ -4,9 +4,8 @@ import { POIS, type POI } from "@/data/pois";
 import StoryDialog from "@/components/StoryDialog";
 import AddStoryDialog, { type UserStory } from "@/components/AddStoryDialog";
 import ExplorerJournal, { TASK_POOL } from "@/components/ExplorerJournal";
+import { API_URL } from "@/lib/api";
 
-const render = "https://berceni-chronicles-map.onrender.com";
-const API_URL = render || "http://localhost:3000";
 const HeritageMap = lazy(() => import("@/components/HeritageMap"));
 export const Route = createFileRoute("/")({ component: Index });
 

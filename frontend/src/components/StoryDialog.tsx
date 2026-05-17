@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import type { POI } from "@/data/pois";
 import type { UserStory } from "@/components/AddStoryDialog";
+import { API_URL } from "@/lib/api";
 
 type Props = { 
   item: POI | UserStory; 
