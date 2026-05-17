@@ -1,8 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Special+Elite&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
-
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Special+Elite&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
 
 @custom-variant dark (&:is(.dark *));
 
@@ -121,16 +120,20 @@
   background: oklch(0.88 0.05 75) !important;
   font-family: var(--font-body);
 }
+
 .leaflet-tile {
   filter: sepia(0.6) saturate(0.7) brightness(0.95) contrast(0.95) hue-rotate(-10deg);
 }
+
 .leaflet-control-attribution {
   background: oklch(0.93 0.035 80 / 0.85) !important;
   color: var(--color-ink) !important;
   font-family: var(--font-type) !important;
   font-size: 10px !important;
 }
+
 .leaflet-control-attribution a { color: var(--color-accent) !important; }
+
 .leaflet-control-zoom a {
   background: var(--color-card) !important;
   color: var(--color-ink) !important;
@@ -156,4 +159,31 @@
   cursor: pointer;
   transition: transform 0.2s ease;
 }
-.vintage-pin:hover { transform: translate(-50%, -50%) scale(1.15); }
+
+.vintage-pin:hover { 
+  transform: translate(-50%, -50%) scale(1.15); 
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(125, 102, 83, 0.15); /* Un fundal translucid, culoarea hârtiei */
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #7d6653; /* Culoarea textului/marginilor sepia */
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #5c2517; /* Culoarea de accent (roșu-cărămiziu) la trecerea mouse-ului */
+}
+
+/* Pentru Firefox */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #7d6653 rgba(125, 102, 83, 0.15);
+}

@@ -1,10 +1,32 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import type { POI } from "@/data/pois";
+import type { UserStory } from "@/components/AddStoryDialog";
 
-type Props = { poi: POI; onClose: () => void };
+// Primește fie un POI oficial, fie o poveste de la utilizator
+type Props = { 
+  item: POI | UserStory; 
+  isUserStory?: boolean;
+  onClose: () => void; 
+  onReadFacts?: () => void; // NOU AICI
+};
 
-export default function StoryDialog({ poi, onClose }: Props) {
+export default function StoryDialog({ item, isUserStory, onClose, onReadFacts }: Props) {
   const [tab, setTab] = useState<"story" | "facts">("story");
+
+  useEffect(() => {
+      if (tab === "facts" && onReadFacts) {
+        onReadFacts();
+      }
+    }, [tab, onReadFacts]);
+
+  // Extragem sigur funFacts (dacă nu există, e un array gol)
+  const funFacts = item.funFacts || [];
+  const hasFacts = funFacts.length > 0;
+  
+  // Pentru user stories, punem data adăugării. Pentru POI, punem anul.
+  const subtitle = isUserStory 
+    ? `Adăugat la: ${new Date((item as UserStory).createdAt).toLocaleDateString('ro-RO')}` 
+    : `Berceni · ${(item as POI).year}`;
 
   return (
     <div
@@ -16,69 +38,59 @@ export default function StoryDialog({ poi, onClose }: Props) {
         className="paper-card deckle-edge relative max-h-[90vh] w-full max-w-2xl overflow-y-auto p-8 sm:p-10"
         onClick={(e) => e.stopPropagation()}
       >
-        <button
-          onClick={onClose}
-          className="absolute right-4 top-4 text-2xl text-sepia hover:text-accent"
-          aria-label="Închide"
-        >
-          ✕
-        </button>
+        <button onClick={onClose} className="absolute right-4 top-4 text-2xl text-sepia hover:text-accent" aria-label="Închide">✕</button>
 
         <p className="font-type text-xs uppercase tracking-[0.3em] text-sepia">
-          Berceni · {poi.year}
+          {subtitle}
         </p>
         <h2 className="mt-2 font-display text-4xl font-bold text-ink sm:text-5xl">
-          {poi.name}
+          {item.name}
         </h2>
 
-        <div className="mt-6 overflow-hidden rounded-sm border border-border shadow-md">
-          <img
-            src={poi.image}
-            alt={poi.name}
-            width={1024}
-            height={704}
-            loading="lazy"
-            className="sepia-img h-auto w-full"
-          />
-        </div>
+        {item.image && (
+          <div className="mt-6 overflow-hidden rounded-sm border border-border shadow-md">
+            <img
+              src={item.image}
+              alt={item.name}
+              loading="lazy"
+              className="sepia-img h-auto w-full max-h-[400px] object-cover"
+            />
+          </div>
+        )}
 
         <div className="mt-6 flex gap-2 border-b border-border">
           <button
             onClick={() => setTab("story")}
             className={`px-4 py-2 font-display text-lg transition-colors ${
-              tab === "story"
-                ? "border-b-2 border-accent text-ink"
-                : "text-sepia hover:text-ink"
+              tab === "story" ? "border-b-2 border-accent text-ink" : "text-sepia hover:text-ink"
             }`}
           >
             Povestea locului
           </button>
-          <button
-            onClick={() => setTab("facts")}
-            className={`px-4 py-2 font-display text-lg transition-colors ${
-              tab === "facts"
-                ? "border-b-2 border-accent text-ink"
-                : "text-sepia hover:text-ink"
-            }`}
-          >
-            Știai că... ({poi.funFacts.length})
-          </button>
+          
+          {/* Arătăm butonul de fapte doar dacă avem cel puțin unul adăugat */}
+          {hasFacts && (
+            <button
+              onClick={() => setTab("facts")}
+              className={`px-4 py-2 font-display text-lg transition-colors ${
+                tab === "facts" ? "border-b-2 border-accent text-ink" : "text-sepia hover:text-ink"
+              }`}
+            >
+              Știai că... ({funFacts.length})
+            </button>
+          )}
         </div>
 
         {tab === "story" ? (
           <p className="mt-5 whitespace-pre-line font-body text-lg leading-relaxed text-ink/90">
-            {poi.story}
+            {item.story}
           </p>
         ) : (
           <ul className="mt-5 space-y-4">
-            {poi.funFacts.map((f, i) => (
+            {funFacts.map((f, i) => (
               <li key={i} className="flex gap-3">
-                <span className="font-display text-2xl font-bold text-accent">
-                  №{i + 1}
-                </span>
-                <span className="font-body text-lg leading-relaxed text-ink/90">
-                  {f}
-                </span>
+                <span className="font-display text-2xl font-bold text-accent">№{i + 1}</span>
+                <span className="font-body text-lg leading-relaxed text-ink/90">{f}</span>
               </li>
             ))}
           </ul>
