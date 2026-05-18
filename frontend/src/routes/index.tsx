@@ -157,6 +157,22 @@ function Index() {
 
   function handleSelectPoi(p: POI) {
     setSelectedPoi(p);
+
+    const hour = new Date().getHours();
+    if (hour >= 20 || hour <= 4) completeTask("night_owl");
+    if (hour >= 5 && hour <= 10) completeTask("early_bird");
+
+    let readPois = JSON.parse(localStorage.getItem("read_pois") || "[]");
+    if (!readPois.includes(p.id)) {
+      readPois.push(p.id);
+      localStorage.setItem("read_pois", JSON.stringify(readPois));
+      if (readPois.length >= 3) completeTask("read_three_pois");
+    }
+  }
+
+  function handleSelectUserStory(s: UserStory) {
+    setSelectedUserStory(s);
+    completeTask("read_user_story");
   }
 
   async function saveStory(s: UserStory) {
@@ -170,6 +186,16 @@ function Index() {
       setUserStories([savedStory, ...userStories]);
       setAddingLocation(null);
       completeTask("add_story");
+
+      completeTask("add_story");
+      
+      if (s.image && s.image.trim() !== "") {
+        completeTask("add_image_story");
+      }
+      
+      if (s.story.length > 150) {
+        completeTask("long_story");
+      }
     } catch (err) { alert("Eroare la conectarea cu baza de date!"); }
   }
 

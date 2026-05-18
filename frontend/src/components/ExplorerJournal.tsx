@@ -3,8 +3,6 @@ import { API_URL } from "@/lib/api";
 
 export const TASK_POOL = [
   { id: "find_cocioc", icon: "🧭", title: "Originile parcului", desc: "Mergi până la locația fostei Mlaștini Cocioc." },
-  { id: "find_imgb", icon: "🏭", title: "Colosul industrial", desc: "Mergi până la Uzinele IMGB." },
-  { id: "find_vacaresti", icon: "⛪", title: "Istoria pierdută", desc: "Mergi până la situl Mănăstirii Văcărești." },
   { id: "find_cenusa", icon: "🏛️", title: "Arhitectură misterioasă", desc: "Mergi la Crematoriul Cenușa." },
   { id: "find_trenulet", icon: "🚂", title: "Nostalgia copilăriei", desc: "Mergi la Gara Trenulețului din Orășel." },
   { id: "find_pod", icon: "🌉", title: "Promenada pe lac", desc: "Mergi pe Podul Arcuit din Tineretului." },
@@ -12,7 +10,14 @@ export const TASK_POOL = [
   { id: "find_debarcader", icon: "🛶", title: "O plimbare pe lac", desc: "Mergi la vechiul debarcader din Tineretului." },
   { id: "find_eroi", icon: "🕯️", title: "Respect pentru istorie", desc: "Vizitează Cimitirul Eroilor Revoluției." },
   { id: "read_facts", icon: "💡", title: "Cercetător de detaliu", desc: "Citește secțiunea 'Știai că...' a unui punct." },
-  { id: "add_story", icon: "✒️", title: "Contribuie la arhivă", desc: "Adaugă propria ta poveste pe hartă." }
+  { id: "add_story", icon: "✒️", title: "Contribuie la arhivă", desc: "Adaugă propria ta poveste pe hartă." },
+  { id: "read_user_story", icon: "👥", title: "Conexiune locală", desc: "Citește o amintire adăugată de un alt vizitator." },
+  { id: "add_image_story", icon: "📸", title: "Fotoreporter de epocă", desc: "Atașează o fotografie la o poveste adăugată de tine." },
+  { id: "long_story", icon: "📜", title: "Romancierul parcului", desc: "Scrie o poveste detaliată, de peste 150 de caractere." },
+  { id: "edit_story", icon: "📝", title: "Arhivar meticulos", desc: "Revizuiește și editează o amintire pe care ai scris-o anterior." },
+  { id: "night_owl", icon: "🦉", title: "Explorator nocturn", desc: "Descoperă o poveste de pe hartă după lăsarea serii (după ora 20:00)." },
+  { id: "read_three_pois", icon: "📚", title: "Sete de cunoaștere", desc: "Citește istoria a 3 puncte de interes diferite de pe hartă." },
+  { id: "early_bird", icon: "🌅", title: "Roua dimineții", desc: "Deschide harta și pornește o misiune înainte de ora 10:00 dimineața." }
 ];
 
 const UX_GRADES = [
