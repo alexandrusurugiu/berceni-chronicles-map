@@ -4,6 +4,7 @@ import { POIS, type POI } from "@/data/pois";
 import StoryDialog from "@/components/StoryDialog";
 import AddStoryDialog, { type UserStory } from "@/components/AddStoryDialog";
 import ExplorerJournal, { TASK_POOL } from "@/components/ExplorerJournal";
+import ConfirmDialog from "@/components/ConfirmDialog";
 import { API_URL } from "@/lib/api";
 
 const HeritageMap = lazy(() => import("@/components/HeritageMap"));
@@ -48,7 +49,7 @@ function Index() {
   const [userStories, setUserStories] = useState<UserStory[]>([]);
   const [isClient, setIsClient] = useState(false);
   const [currentTime, setCurrentTime] = useState(Date.now());
-
+  const [storyToDelete, setStoryToDelete] = useState<string | null>(null);
   const [tasks, setTasks] = useState<Record<string, boolean>>({});
   const [questStarted, setQuestStarted] = useState(false);
   const [userLocation, setUserLocation] = useState<{lat: number, lng: number} | null>(null);
@@ -185,12 +186,13 @@ function Index() {
     } catch (err) { alert("Eroare la actualizare!"); }
   }
 
-  async function handleDeleteStory(id: string) {
-    if (window.confirm("Ești sigur că vrei să ștergi această amintire definitiv?")) {
-      try {
-        await fetch(`${API_URL}/api/stories/${id}`, { method: "DELETE" });
-        setUserStories(userStories.filter(s => s.id !== id));
-      } catch (err) { alert("Eroare la ștergere!"); }
+ async function handleDeleteStory(id: string) {
+    try {
+      await fetch(`${API_URL}/api/stories/${id}`, { method: "DELETE" });
+      setUserStories(userStories.filter(s => s.id !== id));
+      setStoryToDelete(null); 
+    } catch (err) { 
+      alert("Eroare la ștergere!"); 
     }
   }
 
@@ -246,7 +248,7 @@ function Index() {
                   </div>
                   <div className="mt-4 flex justify-end gap-4 border-t border-sepia/30 pt-3">
                     <button onClick={() => setEditingStory(s)} className="text-accent hover:text-ink font-semibold text-sm">✎ Editează</button>
-                    {isWithinFiveMinutes && <button onClick={() => handleDeleteStory(s.id)} className="text-red-700 hover:text-red-900 font-semibold text-sm">✕ Șterge</button>}
+                    {isWithinFiveMinutes && <button onClick={() => setStoryToDelete(s.id)} className="text-red-700 hover:text-red-900 font-semibold text-sm">✕ Șterge</button>}
                   </div>
                 </article>
               );
@@ -262,6 +264,16 @@ function Index() {
       {editingStory && <AddStoryDialog latitude={editingStory.lat} longitude={editingStory.lng} initialData={editingStory} onClose={() => setEditingStory(null)} onSubmit={handleEditStory} />}
 
       <ExplorerJournal tasks={tasks} questStarted={questStarted} onStartQuest={handleStartQuest} userId={userId} />
+    
+      <ConfirmDialog 
+        isOpen={storyToDelete !== null}
+        title="Ștergere amintire"
+        message="Ești sigur că vrei să ștergi acest punct de pe hartă? Acțiunea este ireversibilă și povestea va fi pierdută din arhivă."
+        onConfirm={() => {
+          if (storyToDelete) handleDeleteStory(storyToDelete);
+        }}
+        onCancel={() => setStoryToDelete(null)}
+      />
     </main>
   );
 }
