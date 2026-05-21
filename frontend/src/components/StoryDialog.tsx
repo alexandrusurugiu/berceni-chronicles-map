@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import type { POI } from "@/data/pois";
 import type { UserStory } from "@/components/AddStoryDialog";
 import { API_URL } from "@/lib/api";
+import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 
 type Props = { 
   item: POI | UserStory; 
@@ -46,13 +47,23 @@ export default function StoryDialog({ item, isUserStory, onClose, onReadFacts }:
         </h2>
 
         {item.image && (
-          <div className="mt-6 overflow-hidden rounded-sm border border-border shadow-md">
-            <img
-              src={item.image}
-              alt={item.name}
-              loading="lazy"
-              className="sepia-img h-auto w-full max-h-[400px] object-cover"
-            />
+          <div className="mt-6">
+            {("imageNew" in item && item.imageNew) ? (
+              <BeforeAfterSlider 
+                image={item.image} 
+                imageNew={item.imageNew} 
+                altText={item.name} 
+              />
+            ) : (
+              <div className="overflow-hidden rounded-sm border border-border shadow-md">
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  loading="lazy"
+                  className="sepia-img h-auto w-full max-h-[400px] object-cover"
+                />
+              </div>
+            )}
           </div>
         )}
 

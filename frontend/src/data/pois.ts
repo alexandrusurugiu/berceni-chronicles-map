@@ -7,6 +7,15 @@ import pod from "../assets/pod.jpg";
 import palat_vibe from "../assets/palat_vibe.png";
 import debarcader_vibe from "../assets/debarcader_vibe.jpg";
 import eroi_vibe from "../assets/eroi_vibe.jpg";
+import cocioc_new from "../assets/cocioc_new.jpg";
+import bellu_vibe_new from "../assets/bellu_vibe_new.jpg";
+import oraselul_new from "../assets/oraselul_new.jpg";
+import polivalenta_new from "../assets/polivalenta_new.jpg";
+import cenusa_new from "../assets/cenusa_new.jpg";
+import pod_new from "../assets/pod_new.jpg";
+import palat_new from "../assets/palat_new.jpg";
+import debarcader_new from "../assets/debarcader_new.jpeg";
+import eroi_new from "../assets/eroi_new.jpg";
 
 export type POI = {
   id: string;
@@ -14,7 +23,8 @@ export type POI = {
   lng: number;
   name: string;
   year: string;
-  image: string;
+  image?: string;
+  imageNew?: string;
   story: string;
   funFacts: string[];
 };
@@ -34,6 +44,7 @@ export const POIS: POI[] = [
     name: "Balta Cocioc (Parcul Tineretului)",
     year: "Anii '30-'50",
     image: cocioc, // Mapat direct pe cocioc.jpg atașat
+    imageNew: cocioc_new, // Mapat direct pe cocioc.jpg atașat
     story: "Înainte de a fi parcul pe care îl cunoaștem astăzi, această zonă era o baltă imensă cunoscută sub numele de Cocioc sau Valea Plângerii. Era un loc insalubru, unde se adunau apele reziduale ale orașului, dar care ascundea o faună de baltă incredibilă chiar lângă centrul Capitalei. De multe ori, zona era folosită ca groapă de gunoi. Amenajarea ei a început în anii '60 prin muncă patriotică a tinerilor, transformând balta în lacul actual.",
     funFacts: [
       "Numele 'Valea Plângerii' provenea de la numeroasele balte și locuri mlăștinoase unde, se spunea, oamenii își riscau viața dacă intrau fără a cunoaște zona.",
@@ -48,6 +59,7 @@ export const POIS: POI[] = [
     name: "Cimitirul Bellu (Panteonul Național)",
     year: "1858-Prezent",
     image: bellu_vibe, // Link Placeholder (Vibe Vintage B&W): https://historicimages.b-cdn.net/pois/bellu_vibe.jpg
+    imageNew: bellu_vibe_new, // Link Placeholder (Vibe Vintage B&W): https://historicimages.b-cdn.net/pois/bellu_vibe_new.jpg
     story: "Cimitirul Bellu, inaugurat în 1858, este cel mai mare și cel mai important cimitir artistic din România, considerat un panteon al culturii naționale. Aici își dorm somnul de veci numeroase personalități marquante ale literaturii (Eminescu, Caragiale, Arghezi), științei (Coandă, Saligny), muzicii (Enescu, Maria Tănase) și politicii românești. Pe lângă valoarea istorică, Bellu este un adevărat muzeu în aer liber, adăpostind sculpturi și monumente funerare de o valoare artistică inestimabilă, realizate de sculptori renumiți.",
     funFacts: [
       "În Bellu, există o alee dedicată exclusiv scriitorilor români, unde se organizează periodic comemorări și evenimente culturale.",
@@ -62,6 +74,7 @@ export const POIS: POI[] = [
     name: "Orășelul Copiilor București",
     year: "1976-Prezent",
     image: oraselul, // Mapat direct pe oraselul.jpg atașat
+    imageNew: oraselul_new, // Mapat direct pe oraselul_new.jpg atașat
     story: "Inaugurat în 1976 în partea de sud a Parcului Tineretului, Orășelul Copiilor a fost conceput ca cel mai mare și modern parc de distracții pentru copii din România socialistă. Proiectat cu tematici inspirate din basmele populare românești și realizat cu materiale de înaltă calitate, parcul a devenit instant un loc de pelerinaj pentru familiile din Capitală. Trenulețul cu aburi care înconjura parcul, caruselele aduse din import și zonele de joacă tematice au definit copilăria multor generații de bucureșteni.",
     funFacts: [
       "Trenulețul cu aburi din Orășelul Copiilor circula pe o linie cu ecartament îngust și chiar avea o mică 'gară' cu șef de gară în toată regula.",
@@ -75,7 +88,8 @@ export const POIS: POI[] = [
     lng: 26.1096,
     name: "Sala Polivalentă și Dealul Piscului",
     year: "1974-Prezent",
-    image: polivalenta_sepia, // Link Placeholder (Vibe Vintage Sepia): https://historicimages.b-cdn.net/pois/polivalenta_sepia.jpg
+    image: polivalenta_sepia, 
+    imageNew: polivalenta_new, // Link Placeholder (Vibe Vintage B&W): https://historicimages.b-cdn.net/pois/polivalenta_new.jpg
     story: "Inaugurată în 1974, Sala Polivalentă București a fost concepută ca cel mai modern și complex centru sportiv și cultural din Capitală. Situată pe Dealul Piscului, o mică elevație naturală din Parcul Tineretului, sala a devenit rapid un reper arhitectural al zonei sudice a orașului. Proiectul, realizat de o echipă de tineri arhitecți români, a primit premii naționale și internaționale pentru originalitate și funcționalitate. Sala a găzduit numeroase competiții sportive de anvergură, concerte, congrese și evenimente politice.",
     funFacts: [
       "Sala Polivalentă are o capacitate de peste 5000 de locuri și poate fi adaptată rapid pentru diverse discipline sportive, concerte și expoziții.",
@@ -90,6 +104,7 @@ export const POIS: POI[] = [
     name: "Crematoriul Uman „Cenușa”",
     year: "1928-1936",
     image: cenusa, // Asigură-te că ai un import sus: import cenusa from "../assets/cenusa.jpg";
+    imageNew: cenusa_new, // Link Placeholder (Vibe Vintage B&W): https://historicimages.b-cdn.net/pois/cenusa_new.jpg
     story: "Ascuns parțial de vegetația dinspre Parcul Tineretului, Crematoriul „Cenușa” este o capodoperă a arhitecturii interbelice, construit în stil eclectic cu influențe bizantine și egiptene. Deși astăzi se află într-o stare de conservare precară, silueta sa impunătoare a dominat colina Dealului Piscului zeci de ani, fiind un loc încărcat de mister și legende urbane pentru generațiile de copii care băteau parcul.",
     funFacts: [
       "A fost primul crematoriu uman din România, stârnind controverse puternice la acea vreme din partea Bisericii.",
@@ -104,6 +119,7 @@ export const POIS: POI[] = [
     name: "Podul Arcuit peste Lac",
     year: "1974",
     image: pod, // Necesită import: import pod from "../assets/pod.jpg";
+    imageNew: pod_new, // Link Placeholder (Vibe Vintage B&W): https://historicimages.b-cdn.net/pois/pod_new.jpg
     story: "Odată cu transformarea fostei bălți Cocioc în lacul de agrement de astăzi, a fost construit podul pietonal arcuit, care leagă zona centrală a parcului de Sala Polivalentă. Această structură grațioasă a devenit locul preferat de promenadă al îndrăgostiților și un punct excelent de observație a păsărilor de pe lac și a focurilor de artificii în zilele de sărbătoare.",
     funFacts: [
       "Sub pod, apa atinge una dintre cele mai mari adâncimi din tot lacul Tineretului.",
@@ -118,6 +134,7 @@ export const POIS: POI[] = [
     name: "Palatul Național al Copiilor",
     year: "1985-Prezent",
     image: palat_vibe, // Necesită import sus
+    imageNew: palat_new, // Link Placeholder (Vibe Vintage B&W): https://historicimages.b-cdn.net/pois/palat_new.jpg
     story: "Inaugurat în toamna anului 1985 sub numele de „Palatul Pionierilor și Șoimilor Patriei”, această clădire masivă a fost gândită ca cel mai mare centru de educație non-formală din țară. O capodoperă a arhitecturii publice târzii din perioada comunistă, clădirea a fost dotată cu o sală de spectacole uriașă, zeci de laboratoare (de la aeromodelism și karting, la informatică și balet) și a format generații întregi de tineri bucureșteni.",
     funFacts: [
       "Pe acoperișul Palatului se află un observator astronomic real, perfect funcțional, folosit pentru cursurile de astronomie.",
@@ -132,6 +149,7 @@ export const POIS: POI[] = [
     name: "Debarcaderul Tineretului",
     year: "Anii '70-Prezent",
     image: debarcader_vibe, // Necesită import sus
+    imageNew: debarcader_new, // Link Placeholder (Vibe Vintage B&W): https://historicimages.b-cdn.net/pois/debarcader_new.jpg
     story: "Odată cu asanarea bălții și formarea artificială a Lacului Tineretului (care acoperă aproximativ 13 hectare), a fost amenajat și debarcaderul principal. Zeci de ani a fost locul principal de unde bucureștenii închiriau bărci cu vâsle și hidrobiciclete (celebrele „lebede”). A devenit rapid un simbol al verilor petrecute în oraș, oferind o perspectivă unică asupra Sălii Polivalente de pe apă.",
     funFacts: [
       "Lacul a fost populat artificial cu pește, iar inițial se permitea pescuitul sportiv controlat.",
@@ -146,6 +164,7 @@ export const POIS: POI[] = [
     name: "Cimitirul Eroilor Revoluției",
     year: "1990-Prezent",
     image: eroi_vibe, // Necesită import sus
+    imageNew: eroi_new, // Link Placeholder (Vibe Vintage B&W): https://historicimages.b-cdn.net/pois/eroi_new.jpg
     story: "Situat la marginea de vest a zonei (în Piața Eroii Revoluției, fostă Pieptănari, vizavi de Cimitirul Bellu), acest complex funerar a fost amenajat imediat după evenimentele din Decembrie 1989. Este un loc solemn, cu o încărcătură emoțională copleșitoare, unde odihnesc sute de tineri, civili și militari care și-au pierdut viața în timpul Revoluției Române pentru înlăturarea regimului comunist.",
     funFacts: [
       "Este singurul cimitir din București dedicat exclusiv unui singur eveniment istoric din istoria recentă a României.",
