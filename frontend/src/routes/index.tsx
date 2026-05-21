@@ -53,6 +53,7 @@ function Index() {
   const [tasks, setTasks] = useState<Record<string, boolean>>({});
   const [questStarted, setQuestStarted] = useState(false);
   const [userLocation, setUserLocation] = useState<{lat: number, lng: number} | null>(null);
+  const [nearestPoiDistance, setNearestPoiDistance] = useState<{name: string, dist: number} | null>(null);
 
   const userId = getUserId();
 
@@ -111,6 +112,19 @@ function Index() {
       (position) => {
         const { latitude, longitude } = position.coords;
         setUserLocation({ lat: latitude, lng: longitude });
+
+        let minDist = Infinity;
+        let nearestName = "";
+
+        POIS.forEach(p => {
+          const d = getDistanceInMeters(latitude, longitude, p.lat, p.lng);
+          if (d < minDist) {
+            minDist = d;
+            nearestName = p.name;
+          }
+        });
+
+        setNearestPoiDistance({ name: nearestName, dist: Math.round(minDist) });
 
         let tasksChanged = false;
         const updatedTasks = { ...tasks };
@@ -234,6 +248,15 @@ function Index() {
 
       <section className="mx-auto grid max-w-7xl gap-6 px-6 py-8 sm:px-12 lg:grid-cols-[1fr_320px]">
         <div className="paper-card relative h-[520px] overflow-hidden sm:h-[640px]">
+
+          {questStarted && nearestPoiDistance && (
+              <div className="absolute top-4 left-1/2 -translate-x-1/2 z-[1000] rounded-full bg-paper/90 border-2 border-sepia px-4 py-2 shadow-md backdrop-blur-sm">
+                <p className="font-display text-sm font-bold text-ink">
+                  🧭 Cel mai apropiat: <span className="text-accent">{nearestPoiDistance.name}</span> ({nearestPoiDistance.dist}m)
+                </p>
+              </div>
+            )}
+
           {isClient ? (
             <Suspense fallback={<div>Se desfășoară harta…</div>}>
               <HeritageMap onSelect={handleSelectPoi} onSelectUserStory={setSelectedUserStory} onMapClick={(lat, lng) => setAddingLocation({ lat, lng })} userStories={userStories} userLocation={userLocation} />

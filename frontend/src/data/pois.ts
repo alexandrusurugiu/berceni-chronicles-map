@@ -31,10 +31,10 @@ export const POIS: POI[] = [
     id: "cocioc",
     lat: 44.4047, // Coordonate precise pentru mijlocul actualului lac Tineretului
     lng: 26.1061,
-    name: "Mlaștina Cocioc (Parcul Tineretului)",
+    name: "Balta Cocioc (Parcul Tineretului)",
     year: "Anii '30-'50",
     image: cocioc, // Mapat direct pe cocioc.jpg atașat
-    story: "Înainte de a fi parcul pe care îl cunoaștem astăzi, această zonă era o mlaștină imensă cunoscută sub numele de Cocioc sau Valea Plângerii. Era un loc insalubru, unde se adunau apele reziduale ale orașului, dar care ascundea o faună de baltă incredibilă chiar lângă centrul Capitalei. De multe ori, zona era folosită ca groapă de gunoi. Amenajarea ei a început în anii '60 prin muncă patriotică a tinerilor, transformând mlaștina în lacul actual.",
+    story: "Înainte de a fi parcul pe care îl cunoaștem astăzi, această zonă era o baltă imensă cunoscută sub numele de Cocioc sau Valea Plângerii. Era un loc insalubru, unde se adunau apele reziduale ale orașului, dar care ascundea o faună de baltă incredibilă chiar lângă centrul Capitalei. De multe ori, zona era folosită ca groapă de gunoi. Amenajarea ei a început în anii '60 prin muncă patriotică a tinerilor, transformând mlaștina în lacul actual.",
     funFacts: [
       "Numele 'Valea Plângerii' provenea de la numeroasele balte și locuri mlăștinoase unde, se spunea, oamenii își riscau viața dacă intrau fără a cunoaște zona.",
       "Fauna de baltă din Mlaștina Cocioc a fost studiată intens de biologi înainte de amenajare, existând propuneri pentru a o transforma în rezervație naturală urbană.",
