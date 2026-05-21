@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { API_URL } from "@/lib/api";
 
 export const TASK_POOL = [
-  { id: "find_cocioc", icon: "🧭", title: "Originile parcului", desc: "Mergi până la locația fostei Mlaștini Cocioc." },
+  { id: "find_cocioc", icon: "🧭", title: "Originile parcului", desc: "Mergi până la locația fostei Bălții Cocioc." },
   { id: "find_cenusa", icon: "🏛️", title: "Arhitectură misterioasă", desc: "Mergi la Crematoriul Cenușa." },
   { id: "find_trenulet", icon: "🚂", title: "Nostalgia copilăriei", desc: "Mergi la Gara Trenulețului din Orășel." },
   { id: "find_pod", icon: "🌉", title: "Promenada pe lac", desc: "Mergi pe Podul Arcuit din Tineretului." },

@@ -34,11 +34,11 @@ export const POIS: POI[] = [
     name: "Balta Cocioc (Parcul Tineretului)",
     year: "Anii '30-'50",
     image: cocioc, // Mapat direct pe cocioc.jpg atașat
-    story: "Înainte de a fi parcul pe care îl cunoaștem astăzi, această zonă era o baltă imensă cunoscută sub numele de Cocioc sau Valea Plângerii. Era un loc insalubru, unde se adunau apele reziduale ale orașului, dar care ascundea o faună de baltă incredibilă chiar lângă centrul Capitalei. De multe ori, zona era folosită ca groapă de gunoi. Amenajarea ei a început în anii '60 prin muncă patriotică a tinerilor, transformând mlaștina în lacul actual.",
+    story: "Înainte de a fi parcul pe care îl cunoaștem astăzi, această zonă era o baltă imensă cunoscută sub numele de Cocioc sau Valea Plângerii. Era un loc insalubru, unde se adunau apele reziduale ale orașului, dar care ascundea o faună de baltă incredibilă chiar lângă centrul Capitalei. De multe ori, zona era folosită ca groapă de gunoi. Amenajarea ei a început în anii '60 prin muncă patriotică a tinerilor, transformând balta în lacul actual.",
     funFacts: [
       "Numele 'Valea Plângerii' provenea de la numeroasele balte și locuri mlăștinoase unde, se spunea, oamenii își riscau viața dacă intrau fără a cunoaște zona.",
-      "Fauna de baltă din Mlaștina Cocioc a fost studiată intens de biologi înainte de amenajare, existând propuneri pentru a o transforma în rezervație naturală urbană.",
-      "Legendele locale vorbeau despre comori ascunse în mâlul mlaștinei de către hoții care se ascundeau aici în secolele trecute."
+      "Fauna de baltă din Balta Cocioc a fost studiată intens de biologi înainte de amenajare, existând propuneri pentru a o transforma în rezervație naturală urbană.",
+      "Legendele locale vorbeau despre comori ascunse în mâlul bălții de către hoții care se ascundeau aici în secolele trecute."
     ],
   },
   {
@@ -104,7 +104,7 @@ export const POIS: POI[] = [
     name: "Podul Arcuit peste Lac",
     year: "1974",
     image: pod, // Necesită import: import pod from "../assets/pod.jpg";
-    story: "Odată cu transformarea fostei mlaștini Cocioc în lacul de agrement de astăzi, a fost construit podul pietonal arcuit, care leagă zona centrală a parcului de Sala Polivalentă. Această structură grațioasă a devenit locul preferat de promenadă al îndrăgostiților și un punct excelent de observație a păsărilor de pe lac și a focurilor de artificii în zilele de sărbătoare.",
+    story: "Odată cu transformarea fostei bălți Cocioc în lacul de agrement de astăzi, a fost construit podul pietonal arcuit, care leagă zona centrală a parcului de Sala Polivalentă. Această structură grațioasă a devenit locul preferat de promenadă al îndrăgostiților și un punct excelent de observație a păsărilor de pe lac și a focurilor de artificii în zilele de sărbătoare.",
     funFacts: [
       "Sub pod, apa atinge una dintre cele mai mari adâncimi din tot lacul Tineretului.",
       "Iarna, când lacul îngheța complet în anii '80, copiii foloseau panta podului ca punct de pornire pentru patinaj direct pe gheața lacului.",
@@ -132,11 +132,11 @@ export const POIS: POI[] = [
     name: "Debarcaderul Tineretului",
     year: "Anii '70-Prezent",
     image: debarcader_vibe, // Necesită import sus
-    story: "Odată cu asanarea mlaștinii și formarea artificială a Lacului Tineretului (care acoperă aproximativ 13 hectare), a fost amenajat și debarcaderul principal. Zeci de ani a fost locul principal de unde bucureștenii închiriau bărci cu vâsle și hidrobiciclete (celebrele „lebede”). A devenit rapid un simbol al verilor petrecute în oraș, oferind o perspectivă unică asupra Sălii Polivalente de pe apă.",
+    story: "Odată cu asanarea bălții și formarea artificială a Lacului Tineretului (care acoperă aproximativ 13 hectare), a fost amenajat și debarcaderul principal. Zeci de ani a fost locul principal de unde bucureștenii închiriau bărci cu vâsle și hidrobiciclete (celebrele „lebede”). A devenit rapid un simbol al verilor petrecute în oraș, oferind o perspectivă unică asupra Sălii Polivalente de pe apă.",
     funFacts: [
       "Lacul a fost populat artificial cu pește, iar inițial se permitea pescuitul sportiv controlat.",
       "În anii '80, iarna, când lacul îngheța bocnă, zona debarcaderului devenea patinoar public neoficial.",
-      "Fundul lacului nu este plat, ci urmărește încă adânciturile naturale ale fostei mlaștini Cocioc."
+      "Fundul lacului nu este plat, ci urmărește încă adânciturile naturale ale fostei bălți Cocioc."
     ],
   },
   {
